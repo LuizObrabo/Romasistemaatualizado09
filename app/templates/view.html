@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualização</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Detalhes do Registro</h1>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <a href="/" class="btn btn-primary">Voltar</a>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Informações Pessoais</h5>
+                        <p class="card-text"><strong>Nome Completo:</strong> {{ db.Nome_completo }}</p>
+                        <p class="card-text"><strong>RG:</strong> {{ db.RG }}</p>
+                        <p class="card-text"><strong>CPF:</strong> {{ db.CPF }}</p>
+                        <p class="card-text"><strong>Data de Nascimento:</strong> {{ db.Data_nascimento }}</p>
+                        <p class="card-text"><strong>Data de Expedição:</strong> {{ db.Data_de_expedição }}</p>
+                        <p class="card-text"><strong>Órgão Emissor:</strong> {{ db.Orgão_emiçor }}</p>
+                        <p class="card-text"><strong>Estado Civil:</strong> {{ db.Estado_civil }}</p>
+                        <p class="card-text"><strong>Nome da Mãe:</strong> {{ db.Nome_da_Mãe }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Informações Profissionais</h5>
+                        <p class="card-text"><strong>Empresa:</strong> {{ db.Empresa }}</p>
+                        <p class="card-text"><strong>Regime de Trabalho:</strong> {{ db.Regime_de_trabalho }}</p>
+                        <p class="card-text"><strong>Profissão:</strong> {{ db.Profição }}</p>
+                        <p class="card-text"><strong>Salário Bruto:</strong> {{ db.Salario_bruto }}</p>
+                        <p class="card-text"><strong>Salário Líquido:</strong> {{ db.Salario_liquido }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Endereço</h5>
+                <p class="card-text"><strong>Endereço Residencial:</strong> {{ db.Endereço_residencial }}</p>
+                <p class="card-text"><strong>Número:</strong> {{ db.Numero }}</p>
+                <p class="card-text"><strong>Bairro:</strong> {{ db.Bairro }}</p>
+                <p class="card-text"><strong>Cidade:</strong> {{ db.Cidade }}</p>
+                <p class="card-text"><strong>Estado:</strong> {{ db.Estado }}</p>
+                <p class="card-text"><strong>CEP:</strong> {{ db.CEP }}</p>
+                {% if db.imagem %}
+                    <img src="{{ MEDIA_URL }}{{ db.imagem.url }}" alt="Imagem do Cliente">
+                {% else %}
+                    <p>Nenhuma imagem disponível</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

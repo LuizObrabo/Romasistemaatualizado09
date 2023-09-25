@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Informações dos Clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Informações dos Clientes</h1>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <a href="/form" class="btn btn-success">Adicionar Cliente</a>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <form method="get">
+                    <div class="input-group">
+                        <input type="text" id="search" name="search" class="form-control" placeholder="Buscar cliente...">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome Completo</th>
+                                <th>RG</th>
+                                <th>CPF</th>
+                                <th>Data de Nascimento</th>
+                                <th>Data de Expedição</th>
+                                <th>Órgão Emissor</th>
+                                <th>Estado Civil</th>
+                                <th>Nome da Mãe</th>
+                                <th>Empresa</th>
+                                <th>Regime de Trabalho</th>
+                                <th>Profissão</th>
+                                <th>Salário Bruto</th>
+                                <th>Salário Líquido</th>
+                                <th>Endereço Residencial</th>
+                                <th>Número</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>CEP</th>
+                                <th>imagem</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for dbs in db %}
+                            <tr>
+                                <td>{{ dbs.id }}</td>
+                                <td>{{ dbs.Nome_completo }}</td>
+                                <td>{{ dbs.RG }}</td>
+                                <td>{{ dbs.CPF }}</td>
+                                <td>{{ dbs.Data_nascimento }}</td>
+                                <td>{{ dbs.Data_de_expedição }}</td>
+                                <td>{{ dbs.Orgão_emiçor }}</td>
+                                <td>{{ dbs.Estado_civil }}</td>
+                                <td>{{ dbs.Nome_da_Mãe }}</td>
+                                <td>{{ dbs.Empresa }}</td>
+                                <td>{{ dbs.Regime_de_trabalho }}</td>
+                                <td>{{ dbs.Profição }}</td>
+                                <td>{{ dbs.Salario_bruto }}</td>
+                                <td>{{ dbs.Salario_liquido }}</td>
+                                <td>{{ dbs.Endereço_residencial }}</td>
+                                <td>{{ dbs.Numero }}</td>
+                                <td>{{ dbs.Bairro }}</td>
+                                <td>{{ dbs.Cidade }}</td>
+                                <td>{{ dbs.Estado }}</td>
+                                <td>{{ dbs.CEP }}</td>
+                                <td>{{ dbs.imagem }}</td>
+                                <td>
+                                    <a href="/view/{{ dbs.id }}/" class="btn btn-info btn-sm">Visualizar</a>
+                                    <a href="/edit/{{ dbs.id }}/" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="/delete/{{ dbs.id }}/" class="btn btn-danger btn-sm btnDel">Deletar</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 text-center">
+                <div class="pagination">
+                    {% if db.has_previous %}
+                        <a href="?page={{ db.previous_page_number }}" class="btn btn-primary btn-sm">&lt; Anterior</a>
+                    {% endif %}
+
+                    <span class="mx-3">Página {{ db.number }} de {{ db.paginator.num_pages }}</span>
+
+                    {% if db.has_next %}
+                        <a href="?page={{ db.next_page_number }}" class="btn btn-primary btn-sm">Próxima &gt;</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+</body>
+</html>
+ jd>klk.'javascript'=previus .num_pages

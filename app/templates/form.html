@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Cadastro</h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <a href="/" class="btn btn-primary">Voltar</a>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{% else %}/create/{% endif %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                          <div class="form-group row">
+    <label for="{{ form.Nome_completo.id_for_label }}" class="col-sm-3 col-form-label">Nome Completo</label>
+    <div class="col-sm-9">
+        {{ form.Nome_completo }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.RG.id_for_label }}" class="col-sm-3 col-form-label">RG</label>
+    <div class="col-sm-9">
+        {{ form.RG }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.CPF.id_for_label }}" class="col-sm-3 col-form-label">CPF</label>
+    <div class="col-sm-9">
+        {{ form.CPF }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Data_nascimento.id_for_label }}" class="col-sm-3 col-form-label">Data de Nascimento</label>
+    <div class="col-sm-9">
+        {{ form.Data_nascimento }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Data_de_expedição.id_for_label }}" class="col-sm-3 col-form-label">Data de Expedição</label>
+    <div class="col-sm-9">
+        {{ form.Data_de_expedição }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Orgão_emiçor.id_for_label }}" class="col-sm-3 col-form-label">Órgão Emissor</label>
+    <div class="col-sm-9">
+        {{ form.Orgão_emiçor }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Estado_civil.id_for_label }}" class="col-sm-3 col-form-label">Estado Civil</label>
+    <div class="col-sm-9">
+        {{ form.Estado_civil }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Nome_da_Mãe.id_for_label }}" class="col-sm-3 col-form-label">Nome da Mãe</label>
+    <div class="col-sm-9">
+        {{ form.Nome_da_Mãe }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Empresa.id_for_label }}" class="col-sm-3 col-form-label">Empresa</label>
+    <div class="col-sm-9">
+        {{ form.Empresa }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Regime_de_trabalho.id_for_label }}" class="col-sm-3 col-form-label">Regime de Trabalho</label>
+    <div class="col-sm-9">
+        {{ form.Regime_de_trabalho }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Profição.id_for_label }}" class="col-sm-3 col-form-label">Profissão</label>
+    <div class="col-sm-9">
+        {{ form.Profição }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Salario_bruto.id_for_label }}" class="col-sm-3 col-form-label">Salário Bruto</label>
+    <div class="col-sm-9">
+        {{ form.Salario_bruto }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Salario_liquido.id_for_label }}" class="col-sm-3 col-form-label">Salário Líquido</label>
+    <div class="col-sm-9">
+        {{ form.Salario_liquido }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Endereço_residencial.id_for_label }}" class="col-sm-3 col-form-label">Endereço Residencial</label>
+    <div class="col-sm-9">
+        {{ form.Endereço_residencial }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Numero.id_for_label }}" class="col-sm-3 col-form-label">Número</label>
+    <div class="col-sm-9">
+        {{ form.Numero }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Bairro.id_for_label }}" class="col-sm-3 col-form-label">Bairro</label>
+    <div class="col-sm-9">
+        {{ form.Bairro }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Cidade.id_for_label }}" class="col-sm-3 col-form-label">Cidade</label>
+    <div class="col-sm-9">
+        {{ form.Cidade }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.Estado.id_for_label }}" class="col-sm-3 col-form-label">Estado</label>
+    <div class="col-sm-9">
+        {{ form.Estado }}
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ form.CEP.id_for_label }}" class="col-sm-3 col-form-label">CEP</label>
+    <div class="col-sm-9">
+        {{ form.CEP }}
+    </div>
+</div>
+
+
+
+     <div class="form-group">
+                            <label for="{{ form.imagem.id_for_label }}">Imagem</label>
+                            <input type="file" name="imagem">
+                        </div>
+
+
+
+                         <div class="form-group">
+                            <img src="{{ MEDIA_URL }}{{ db.imagem.url }}" alt="Minha Imagem" class="img-thumbnail">
+                        </div>
+
+
+
+
+
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
