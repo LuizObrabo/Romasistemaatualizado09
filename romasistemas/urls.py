@@ -19,6 +19,7 @@ from django.urls import path
 from app.views import home, form, create, view, edit, update, delete
 from django.conf import settings
 from django.conf.urls.static import static
+from app import views
 
 
 urlpatterns = [
@@ -30,7 +31,8 @@ urlpatterns = [
     path('edit/<int:pk>/', edit, name='edit'),
     path('update/<int:pk>/', update, name='update'),
     path('delete/<int:pk>/', delete, name='delete'),
-
+    path('consignado/create/', views.create_consignado, name='create_consignado'),
+    path('emprestimo/create/', views.create_emprestimo, name='create_emprestimo'),
 
 ] +  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

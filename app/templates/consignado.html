@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Consignado</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Cadastro de Consignado</h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <a href="/" class="btn btn-primary">Voltar</a>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form name="consignado_form" id="consignado_form" action="{% if db %}/update/{{db.id}}/{% else %}/create/{% endif %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                       <div class="form-group row">
+    <label for="{{ consignado_form.Bem_do_Financiamento.id_for_label }}" class="col-sm-3 col-form-label">Bem do Financiamento</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Bem_do_Financiamento.name }}" value="123456" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Endereço_residencial.id_for_label }}" class="col-sm-3 col-form-label">Endereço Residencial</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Endereço_residencial.name }}" value="Rua das Flores, 123" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Estado_do_Bem.id_for_label }}" class="col-sm-3 col-form-label">Estado do Bem</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Estado_do_Bem.name }}" value="São Paulo" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Entrada.id_for_label }}" class="col-sm-3 col-form-label">Entrada</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Entrada.name }}" value="1000" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Banco.id_for_label }}" class="col-sm-3 col-form-label">Banco</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Banco.name }}" value="Banco ABC" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Agencia.id_for_label }}" class="col-sm-3 col-form-label">Agencia</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Agencia.name }}" value="1234" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Conta.id_for_label }}" class="col-sm-3 col-form-label">Conta</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Conta.name }}" value="5678" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Tipo_da_conta.id_for_label }}" class="col-sm-3 col-form-label">Tipo da Conta</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Tipo_da_conta.name }}" value="Conta Corrente" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Conclusão.id_for_label }}" class="col-sm-3 col-form-label">Conclusão</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Conclusão.name }}" value="1" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Observação.id_for_label }}" class="col-sm-3 col-form-label">Observação</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ consignado_form.Observação.name }}" value="Concluído" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.RG_consignado.id_for_label }}" class="col-sm-3 col-form-label">RG Consignado</label>
+    <div class="col-sm-9">
+        <input type="file" name="{{ consignado_form.RG_consignado.name }}">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.CPF_consignado.id_for_label }}" class="col-sm-3 col-form-label">CPF Consignado</label>
+    <div class="col-sm-9">
+        <input type="file" name="{{ consignado_form.CPF_consignado.name }}">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.Comprovante_consignado.id_for_label }}" class="col-sm-3 col-form-label">Comprovante Consignado</label>
+    <div class="col-sm-9">
+        <input type="file" name="{{ consignado_form.Comprovante_consignado.name }}">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ consignado_form.IR.id_for_label }}" class="col-sm-3 col-form-label">IR</label>
+    <div class="col-sm-9">
+        <input type="file" name="{{ consignado_form.IR.name }}">
+    </div>
+</div>
+                        <!-- Continue adicionando os campos restantes do modelo "Consignado" conforme necessário -->
+
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

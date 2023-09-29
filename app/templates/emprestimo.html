@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Empréstimo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Cadastro de Empréstimo</h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <a href="/" class="btn btn-primary">Voltar</a>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form name="emprestimo_form" id="emprestimo_form" action="{% if db %}/update/{{db.id}}/{% else %}/create/{% endif %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                       <div class="form-group row">
+    <label for="{{ emprestimo_form.Tipo_de_consignado_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Tipo de Consignado Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.Tipo_de_consignado_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Valor_beneficio_renda_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Valor do Benefício/Renda Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.Valor_beneficio_renda_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Especie_de_beneficio_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Espécie de Benefício Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.Especie_de_beneficio_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.N_beneficio_matricula_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Nº de Benefício/Matrícula Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.N_beneficio_matricula_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Margem_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Margem Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.Margem_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Banco_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Banco Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.Banco_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Agencia_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Agência Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.Agencia_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Conta_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Conta Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.Conta_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Tipo_da_conta_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Tipo da Conta Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="text" name="{{ emprestimo_form.Tipo_da_conta_emprestimo.name }}" class="form-control">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.RG_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">RG Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="file" name="{{ emprestimo_form.RG_emprestimo.name }}">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.CPF_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">CPF Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="file" name="{{ emprestimo_form.CPF_emprestimo.name }}">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Comprovante_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Comprovante Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="file" name="{{ emprestimo_form.Comprovante_emprestimo.name }}">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="{{ emprestimo_form.Contra_cheque_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Contra-Cheque Empréstimo</label>
+    <div class="col-sm-9">
+        <input type="file" name="{{ emprestimo_form.Contra_cheque_emprestimo.name }}">
+    </div>
+</div>
+
+<!-- Continue adicionando os campos restantes
+
+
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
