@@ -25,7 +25,7 @@ class nomes(models.Model):
     CEP = models.CharField(max_length=15)
     imagem = models.FileField(upload_to=upload_imagem_nomes, null=True, blank=True)
 
-class Consignado(models.Model):
+class consignado(models.Model):
     nomes = models.ForeignKey(nomes, on_delete=models.CASCADE)
     Status = models.CharField(max_length=30, default=None, null=True, blank=True)
     Bem_do_Financiamento = models.DecimalField(max_digits=30, decimal_places=2, default=None, null=True, blank=True)
@@ -43,7 +43,7 @@ class Consignado(models.Model):
     Comprovante_consignado = models.FileField(upload_to=upload_imagem_nomes, null=True, blank=True)
     IR_consignado = models.FileField(upload_to=upload_imagem_nomes, null=True, blank=True)
 
-class Emprestimo(models.Model):
+class emprestimo(models.Model):
     nomes = models.ForeignKey(nomes, on_delete=models.CASCADE)
     Tipo_de_consignado_emprestimo = models.CharField(max_length=30, default=None, null=True, blank=True)
     Valor_beneficio_renda_emprestimo = models.CharField(max_length=30, default=None, null=True, blank=True)

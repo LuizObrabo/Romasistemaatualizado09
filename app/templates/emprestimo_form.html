@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Cadastro de Empréstimo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
+   </head>
 <body>
 <div class="container mt-4">
     <div class="row">
@@ -27,7 +27,7 @@
                         {% csrf_token %}
 
                        <div class="form-group row">
-    <label for="{{ emprestimo_form.Tipo_de_consignado_emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Tipo de Consignado Empréstimo</label>
+    <label for="{{ emprestimo_form.emprestimo.id_for_label }}" class="col-sm-3 col-form-label">Tipo de Consignado Empréstimo</label>
     <div class="col-sm-9">
         <input type="text" name="{{ emprestimo_form.Tipo_de_consignado_emprestimo.name }}" class="form-control">
     </div>
@@ -117,7 +117,7 @@
     </div>
 </div>
 
-<!-- Continue adicionando os campos restantes
+
 
 
                         <button type="submit" class="btn btn-success">Salvar</button>

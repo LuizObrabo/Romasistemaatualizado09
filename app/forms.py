@@ -1,5 +1,5 @@
 from django import forms
-from app.models import nomes, Consignado, Emprestimo
+from app.models import nomes, consignado, emprestimo
 
 class NomesForm(forms.ModelForm):
     class Meta:
@@ -14,7 +14,7 @@ class NomesForm(forms.ModelForm):
 
 class ConsignadoForm(forms.ModelForm):
     class Meta:
-        model = Consignado  # Use o modelo Consignado aqui
+        model = consignado  # Use o modelo Consignado aqui
         fields = [
             'Status', 'Bem_do_Financiamento', 'Endereço_residencial_consignado',
             'Estado_do_Bem_consignado', 'Entrada_consignado', 'Banco_consignado',
@@ -25,7 +25,7 @@ class ConsignadoForm(forms.ModelForm):
 
 class EmprestimoForm(forms.ModelForm):
     class Meta:
-        model = Emprestimo  # Use o modelo Emprestimo aqui
+        model = emprestimo
         fields = [
             'Tipo_de_consignado_emprestimo', 'Valor_beneficio_renda_emprestimo',
             'Especie_de_beneficio_emprestimo', 'N_beneficio_matricula_emprestimo',

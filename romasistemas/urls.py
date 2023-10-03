@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import home, form, create, view, edit, update, delete
+from app.views import (home, form, create, view, edit, update, delete, store, create_user, painel, dologin,
+                       create_consignado, create_emprestimo, dashboard)
 from django.conf import settings
 from django.conf.urls.static import static
 from app import views
@@ -27,6 +28,11 @@ urlpatterns = [
     path('', home, name='home'),
     path('form/', form, name='form'),
     path('create/', create, name='create'),
+    path('create_user/', create_user, name='create'),
+    path('store/', store),
+    path('painel/', painel),
+    path('dologin/', dologin),
+    path('dashboard/', dashboard),
     path('view/<int:pk>/', view, name='view'),
     path('edit/<int:pk>/', edit, name='edit'),
     path('update/<int:pk>/', update, name='update'),

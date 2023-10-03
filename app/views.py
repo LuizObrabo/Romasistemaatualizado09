@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from app.forms import NomesForm, ConsignadoForm, EmprestimoForm
-from app.models import nomes, Consignado, Emprestimo
+from app.models import nomes, consignado, emprestimo
 from django.db import models
-
-
+import logging
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 def home(request):
     data = {}
@@ -60,25 +61,62 @@ def delete(request, pk):
     return redirect('home')
 
 def create_consignado(request):
-    data = {}
     if request.method == 'POST':
         form = ConsignadoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')  # Redireciona para a página inicial após a criação do Consignado
+            return redirect('home')
     else:
         form = ConsignadoForm()
-    data['form'] = form
-    return render(request, 'consignado_form.html', data)
+    return render(request, 'consignado_form.html', {'form': form})
 
-def create_emprestimo(request):
+def create_user(request):
+    return render(request,'create_user.html')
+
+def store(request):
     data = {}
+    if(request.POST['password'] != request.POST['password-conf']):
+        data['msg'] = 'Senha e confirmação de senha diferentes!'
+        data['class'] = 'alert-danger'
+    else:
+        user = User.objects.create_user(request.POST['user'], request.POST['email'], request.POST['password'])
+        user.first_name = request.POST['name']
+        user.save()
+        data['msg'] = 'Usuário cadastrado com sucesso!'
+        data['class'] = 'alert-success'
+    return render(request,'create_user.html',data)
+
+def create_emprestimo(request,pk):
     if request.method == 'POST':
-        form = EmprestimoForm(request.POST, request.FILES)
+        form = emprestimo(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')  # Redireciona para a página inicial após a criação do Empréstimo
+
+            logging.info('Formulário de Empréstimo salvo com sucesso!')
+            return redirect('index.html')
+        else:
+
+            logging.error('O formulário de Empréstimo não é válido.')
     else:
         form = EmprestimoForm()
-    data['form'] = form
-    return render(request, 'emprestimo_form.html', data)
+    return render(request, 'emprestimo_form.html', {'form': form})
+
+#Formulário do painel de login
+def painel(request):
+    return render(request,'painel.html')
+
+#Processa o login
+def dologin(request):
+    data = {}
+    user = authenticate(username=request.POST['user'], password=request.POST['password'])
+    if user is not None:
+        login(request, user)
+        return redirect('/dashboard/')
+    else:
+        data['msg'] = 'Usuário ou Senha inválidos!'
+        data['class'] = 'alert-danger'
+        return render(request,'painel.html',data)
+
+#Página inicial do dashboard
+def dashboard(request):
+    return render(request,'dashboard/home.html')
